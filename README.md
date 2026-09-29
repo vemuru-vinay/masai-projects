@@ -59,7 +59,7 @@ A conversational helpdesk agent built in four stages, each reusing the last:
 3. **`intelligent_matching.py`** — a hybrid matcher combining keyword overlap and TF-IDF semantic similarity, with confidence scores.
 4. **`helpdesk_agent.py`** — the `SupportAgent`: keeps conversation history, tracks confidence, and escalates to a human when nothing matches well.
 
-**Setup:** `pip install groq scikit-learn python-dotenv`, copy `.env.example` to `.env`, set `GROQ_API_KEY`, then `python helpdesk_agent.py`.
+**Setup:** `pip install requests scikit-learn`, copy `.env.example` to `.env`, set `GROQ_API_KEY`, then `python helpdesk_agent.py`.
 
 ---
 

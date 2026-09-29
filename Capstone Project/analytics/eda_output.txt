@@ -1,0 +1,109 @@
+Step 1: Loading raw dataset and saving offline fallback CSV ...
+=== df.info() ===
+<class 'pandas.DataFrame'>
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 15 columns):
+ #   Column       Non-Null Count  Dtype   
+---  ------       --------------  -----   
+ 0   survived     891 non-null    int64   
+ 1   pclass       891 non-null    int64   
+ 2   sex          891 non-null    str     
+ 3   age          714 non-null    float64 
+ 4   sibsp        891 non-null    int64   
+ 5   parch        891 non-null    int64   
+ 6   fare         891 non-null    float64 
+ 7   embarked     889 non-null    str     
+ 8   class        891 non-null    category
+ 9   who          891 non-null    str     
+ 10  adult_male   891 non-null    bool    
+ 11  deck         203 non-null    category
+ 12  embark_town  889 non-null    str     
+ 13  alive        891 non-null    str     
+ 14  alone        891 non-null    bool    
+dtypes: bool(2), category(2), float64(2), int64(4), str(5)
+memory usage: 80.7 KB
+
+=== df.describe() ===
+         survived      pclass         age       sibsp       parch        fare
+count  891.000000  891.000000  714.000000  891.000000  891.000000  891.000000
+mean     0.383838    2.308642   29.699118    0.523008    0.381594   32.204208
+std      0.486592    0.836071   14.526497    1.102743    0.806057   49.693429
+min      0.000000    1.000000    0.420000    0.000000    0.000000    0.000000
+25%      0.000000    2.000000   20.125000    0.000000    0.000000    7.910400
+50%      0.000000    3.000000   28.000000    0.000000    0.000000   14.454200
+75%      1.000000    3.000000   38.000000    1.000000    0.000000   31.000000
+max      1.000000    3.000000   80.000000    8.000000    6.000000  512.329200
+
+=== df.shape ===
+(891, 15)
+
+=== Missing value percentages ===
+deck           77.216611
+age            19.865320
+embarked        0.224467
+embark_town     0.224467
+dtype: float64
+
+Step 2: Cleaning data ...
+Missing-value handling report:
+  deck: 77.22% missing -> dropped column (missing rate too high for reliable imputation)
+  age: 19.87% missing -> imputed with median (28.00)
+  embarked: 0.22% missing -> dropped rows with missing values (below 5% threshold)
+  embark_town: 0.22% missing -> dropped rows with missing values (below 5% threshold)
+
+Step 3: Univariate analysis (age, fare) ...
+
+Age IQR outliers: 65 (bounds: 2.50 to 54.50)
+Fare IQR outliers: 114 (bounds: -26.76 to 65.66)
+
+Fare mean: 32.10, median: 14.45, mode: 8.05
+Fare distribution: right-skewed (mean > median > mode), driven by a small number of high-fare passengers
+
+Step 4: Bivariate analysis (survival rates) ...
+
+Survival rate by sex:
+  male: 0.189
+  female: 0.740
+
+Survival rate by pclass:
+  class 1: 0.626
+  class 2: 0.473
+  class 3: 0.242
+
+Survival rate by sex and pclass:
+  male, class 1: 0.369
+  male, class 2: 0.157
+  male, class 3: 0.135
+  female, class 1: 0.967
+  female, class 2: 0.921
+  female, class 3: 0.500
+
+Step 5: Correlation analysis ...
+
+Top 2 strongest correlations (by absolute value):
+  pclass vs fare: -0.548
+  sibsp vs parch: 0.415
+
+Step 6: Multivariate data story ...
+
+Chart 1 (Survival Rate by Class and Sex): Women had a dramatically higher survival rate than men in every class, and this gap holds even in third class where overall conditions were worst. First-class women had the highest survival rate of any group, showing both sex and class independently mattered.
+
+Chart 2 (Age Distribution by Survival and Sex): Among men, survivors skew slightly younger than non-survivors, suggesting younger men were somewhat more able to reach lifeboats. Among women, age has far less impact on survival, since women were prioritized regardless of age.
+
+Chart 3 (Age vs Fare Colored by Survival): Passengers who paid higher fares (upper-right region) survived at a visibly higher rate than low-fare passengers clustered near the bottom, reinforcing that fare (a proxy for class and deck location) was protective. Age alone shows no clear separation, meaning fare/class carried more predictive signal than age by itself.
+
+Chart 4 (Survival Rate by Embarkation Port and Class): Passengers from Cherbourg had a higher survival rate than those from Southampton or Queenstown, largely because Cherbourg had a higher proportion of first-class passengers. This shows embarkation port's apparent effect on survival is mostly a class composition effect rather than a direct cause.
+
+Step 7: Standardization exploratory check ...
+
+Before standardization:
+            age       fare
+mean  29.315152  32.096681
+std   12.984932  49.697504
+
+After standardization:
+        age_scaled   fare_scaled
+mean  2.717486e-16  1.398706e-16
+std   1.000563e+00  1.000563e+00
+
+EDA complete. Charts saved in ./charts/, offline fallback saved as titanic.csv

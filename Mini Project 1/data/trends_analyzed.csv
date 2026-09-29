@@ -1,0 +1,57 @@
+,post_id,title,category,score,num_comments,author,collected_at,engagement,is_popular
+0,47737563,"AI Will Be Met with Violence, and Nothing Good Will Come of It",technology,85,118,gHeadphone,2026-04-12 18:32:50,1.372093023255814,False
+1,47736555,I run multiple $10K MRR companies on a $20/month tech stack,technology,369,238,tradertef,2026-04-12 18:32:53,0.6432432432432432,True
+2,47733217,How We Broke Top AI Agent Benchmarks: And What Comes Next,technology,417,103,Anon84,2026-04-12 18:32:56,0.24641148325358853,True
+3,47738595,No one owes you supply-chain security,technology,10,1,birdculture,2026-04-12 18:33:01,0.09090909090909091,False
+4,47673171,How Complex is my Code?,technology,137,34,speckx,2026-04-12 18:33:02,0.2463768115942029,False
+5,47730194,Cirrus Labs to join OpenAI,technology,271,132,seekdeep,2026-04-12 18:33:09,0.4852941176470588,True
+6,47731506,Advanced Mac Substitute is an API-level reimplementation of 1980s-era Mac OS,technology,251,63,zdw,2026-04-12 18:33:10,0.25,True
+7,47727960,Show HN: Pardonned.com – A searchable database of US Pardons,technology,444,246,vidluther,2026-04-12 18:33:11,0.5528089887640449,True
+8,47735405,Software Preservation Group: C++ History Collection,technology,34,3,quuxplusone,2026-04-12 18:33:18,0.08571428571428572,False
+9,47735581,How a dancer with ALS used brainwaves to perform live,technology,51,11,1659447091,2026-04-12 18:33:20,0.21153846153846154,False
+10,47734878,High-Level Rust: Getting 80% of the Benefits with 20% of the Pain,technology,44,46,maxloh,2026-04-12 18:33:25,1.0222222222222221,False
+11,47732402,The APL programming language source code (2012),technology,72,24,tosh,2026-04-12 18:33:30,0.3287671232876712,False
+12,47730407,South Korea introduces universal basic mobile data access,technology,390,113,saikatsg,2026-04-12 18:33:32,0.289002557544757,True
+13,47734912,Midnight Captain – A midnight commander inspired file manager,technology,35,30,duguyue100,2026-04-12 18:33:39,0.8333333333333334,False
+14,47729634,Now is the best time to write code by hand,technology,86,39,nickgreg,2026-04-12 18:33:44,0.4482758620689655,False
+15,47728653,"France's government is ditching Windows for Linux, says US tech a strategic risk",technology,462,263,pabs3,2026-04-12 18:33:52,0.5680345572354212,True
+16,47736814,The AI Layoff Trap,technology,11,2,the-mitr,2026-04-12 18:34:07,0.16666666666666666,False
+17,47725403,Italo Calvino: A traveller in a world of uncertainty,technology,117,21,lermontov,2026-04-12 18:34:17,0.17796610169491525,False
+18,47721953,AI assistance when contributing to the Linux kernel,technology,505,388,hmokiguess,2026-04-12 18:34:20,0.766798418972332,True
+19,47720418,"Launch HN: Twill.ai (YC S25) – Delegate to cloud agents, get back PRs",technology,76,83,danoandco,2026-04-12 18:34:25,1.077922077922078,False
+20,47669923,Clojure on Fennel Part One: Persistent Data Structures,technology,162,21,roxolotl,2026-04-12 18:34:27,0.12883435582822086,False
+21,47737642,Lawyer behind AI psychosis cases warns of mass casualty risks,technology,9,5,mentalgear,2026-04-12 18:34:29,0.5,False
+22,47712656,We've raised $17M to build what comes after Git,technology,334,736,ellieh,2026-04-12 18:34:34,2.1970149253731344,True
+23,47736831,Ask HN: Do you trust AI agents with API keys / private keys?,technology,8,8,devendra116,2026-04-12 18:34:35,0.8888888888888888,False
+24,47674473,Stewart Brand on how progress happens,worldnews,20,5,bookofjoe,2026-04-12 18:34:55,0.23809523809523808,False
+25,47722333,"Chimpanzees in Uganda locked in eight-year 'civil war', say researchers",worldnews,427,269,neversaydie,2026-04-12 18:36:00,0.6285046728971962,True
+26,47721946,JSON formatter Chrome plugin now closed and injecting adware,worldnews,281,134,jkl5xx,2026-04-12 18:36:48,0.475177304964539,True
+27,47729994,Polymarket gamblers betting millions on war,worldnews,154,125,sandebert,2026-04-12 18:37:35,0.8064516129032258,False
+28,47679121,Project Glasswing: Securing critical software for the AI era,worldnews,1535,832,Ryan5453,2026-04-12 18:37:58,0.5416666666666666,True
+29,47693960,Flashback to a time when government reports were works of art,worldnews,30,12,NaOH,2026-04-12 18:38:35,0.3870967741935484,False
+30,47698455,Starfling: A one-tap endless orbital slingshot game in a single HTML file,sports,598,150,iceberger2001,2026-04-12 18:39:49,0.25041736227045075,True
+31,47698111,Bevy game development tutorials and in-depth resources,sports,133,48,GenericCanadian,2026-04-12 18:40:01,0.3582089552238806,False
+32,47713495,Team from ETH Zurich make high quality quantum swap gate using a geometric phase,sports,234,53,joko42,2026-04-12 18:40:27,0.225531914893617,True
+33,47731707,"Rockstar Games Hacked, Hackers Threaten a Massive Data Leak If Not Paid Ransom",sports,104,51,c420,2026-04-12 18:40:43,0.4857142857142857,False
+34,47704430,Can It Resolve Doom? Game Engine in 2k DNS Records,sports,9,2,choult,2026-04-12 18:42:55,0.2,False
+35,47728323,Relics of the Heroic Age of Manned Space Flight,science,5,0,zdgeier,2026-04-12 18:44:12,0.0,False
+36,47701769,The Bra-and-Girdle Maker That Fashioned the Impossible for NASA,science,127,18,sohkamyung,2026-04-12 18:45:30,0.140625,False
+37,47704804,How NASA built Artemis II’s fault-tolerant computer,science,626,231,speckx,2026-04-12 18:46:22,0.3684210526315789,True
+38,47708818,Native Instant Space Switching on macOS,science,635,317,PaulHoule,2026-04-12 18:46:40,0.49842767295597484,True
+39,47724352,Filing the corners off my MacBooks,entertainment,1342,636,normanvalentine,2026-04-12 18:50:14,0.47356664184661207,True
+40,47733066,New synthesis of astronomical measurements shows Hubble tension is real,entertainment,68,13,anigbrowl,2026-04-12 18:50:23,0.18840579710144928,False
+41,47699470,The Life and Death of the Book Review,entertainment,29,6,lermontov,2026-04-12 18:50:44,0.2,False
+42,47736071,The Universal Standard Book Number,entertainment,9,1,novalis78,2026-04-12 18:51:23,0.1,False
+43,47721997,Show HN: FluidCAD – Parametric CAD with JavaScript,entertainment,147,34,maouida,2026-04-12 18:51:40,0.22972972972972974,False
+44,47730522,Show HN: Waffle – Native macOS terminal that auto-tiles sessions into a grid,entertainment,35,11,olleeolleeollee,2026-04-12 18:51:53,0.3055555555555556,False
+45,47733479,Show HN: A Better Internet,entertainment,8,3,tclancy,2026-04-12 18:52:15,0.3333333333333333,False
+46,47722011,Show HN: A WYSIWYG word processor in Python,entertainment,83,37,chrisecker,2026-04-12 18:52:16,0.44047619047619047,False
+47,47721255,Show HN: Eve – Managed OpenClaw for work,entertainment,69,36,zachdive,2026-04-12 18:52:21,0.5142857142857142,False
+48,47736637,CDC director delays report showing Covid vaccine benefits,entertainment,17,0,iamflimflam1,2026-04-12 18:52:34,0.0,False
+49,47678844,Show HN: Marimo pair – Reactive Python notebooks as environments for agents,entertainment,137,33,manzt,2026-04-12 18:52:58,0.2391304347826087,False
+50,47705413,Show HN: I built a Cargo-like build tool for C/C++,entertainment,169,166,randerson_112,2026-04-12 18:53:03,0.9764705882352941,False
+51,47735606,Americans still opt for print books over digital or audio versions,entertainment,70,63,thm,2026-04-12 18:53:12,0.8873239436619719,False
+52,47702647,"Launch HN: Relvy (YC F24) – On-call runbooks, automated",entertainment,48,25,behat,2026-04-12 18:53:16,0.5102040816326531,False
+53,47702196,"Show HN: CSS Studio. Design by hand, code by agent",entertainment,166,106,SirHound,2026-04-12 18:53:27,0.6347305389221557,False
+54,47715339,Show HN: Keeper – embedded secret store for Go (help me break it),entertainment,62,32,babawere,2026-04-12 18:53:50,0.5079365079365079,False
+55,47676561,Teardown of unreleased LG Rollable shows why rollable phones aren't a thing,entertainment,121,56,DamnInteresting,2026-04-12 18:54:12,0.45901639344262296,False

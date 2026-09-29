@@ -1,0 +1,140 @@
+Step 1: Scraping books.toscrape.com ...
+Scraped rows: 69
+
+Step 2: Cleaning and converting ...
+Dropped rows: 0
+Loaded rows: 69
+Categories used: 3
+Fixed conversion rate used: 1 GBP = 105.5 INR
+
+Step 3: Building SQLite database ...
+Database written to books.db
+
+Step 4: Running SQL queries ...
+
+--- in_stock_under_20_gbp ---
+['title', 'price_gbp', 'rating']
+('Tastes Like Fear (DI Marnie Rome #3)', 10.69, 1)
+('Hide Away (Eve Duncan #20)', 11.84, 1)
+('The Girl You Lost', 12.29, 5)
+('Playing with Fire', 13.71, 3)
+('That Darkness (Gardiner and Renner #1)', 13.92, 1)
+('The Girl In The Ice (DCI Erika Foster #1)', 15.85, 3)
+('The Constant Princess (The Tudor Court #1)', 16.62, 3)
+('A Murder in Time', 16.64, 1)
+('A Study in Scarlet (Sherlock Holmes #1)', 16.73, 2)
+("A Spy's Devotion (The Regency Spies of London #1)", 16.97, 5)
+
+--- distinct_categories ---
+['category_name']
+('Historical Fiction',)
+('Mystery',)
+('Travel',)
+
+--- price_between_10_and_30 ---
+['title', 'price_gbp']
+('Forever and Forever: The Courtship of Henry Longfellow and Fanny Appleton', 29.69)
+('The Passion of Dolssa', 28.32)
+('The Marriage of Opposites', 28.08)
+('Lost Among the Living', 27.7)
+('The Widow', 27.26)
+('Poisonous (Max Revere Novels #3)', 26.8)
+('Girl With a Pearl Earring', 26.77)
+('1,000 Places to See Before You Die', 26.08)
+('Starlark', 25.83)
+('Extreme Prey (Lucas Davenport #26)', 25.4)
+('What Happened on Beale Street (Secrets of the South Mysteries #2)', 25.37)
+('The Mysterious Affair at Styles (Hercule Poirot #1)', 24.8)
+('Career of Evil (Cormoran Strike #3)', 24.72)
+('The Road to Little Dribbling: Adventures of an American in Britain (Notes From a Small Island #2)', 23.21)
+('The Silkworm (Cormoran Strike #2)', 23.05)
+
+--- rating_in_four_five ---
+['title', 'rating', 'price_inr']
+('The Girl You Lost', 5, 1296.59)
+("A Spy's Devotion (The Regency Spies of London #1)", 5, 1790.33)
+('Between Shades of Gray', 5, 2193.34)
+('Voyager (Outlander #3)', 5, 2222.89)
+('The Silkworm (Cormoran Strike #2)', 5, 2431.78)
+('What Happened on Beale Street (Secrets of the South Mysteries #2)', 5, 2676.54)
+('1,000 Places to See Before You Die', 5, 2751.44)
+('The Passion of Dolssa', 5, 2987.76)
+('Mrs. Houdini', 5, 3191.38)
+('The Red Tent', 5, 3762.13)
+('While You Were Mine', 5, 4359.26)
+('A Time of Torment (Charlie Parker #14)', 5, 5100.93)
+("The Bachelor Girl's Guide to Murder (Herringford and Watts Mysteries #1)", 5, 5517.65)
+('A Flight of Arrows (The Pathfinders #2)', 5, 5858.41)
+('Delivering the Truth (Quaker Midwife Mystery #1)', 4, 2203.89)
+('The Mysterious Affair at Styles (Hercule Poirot #1)', 4, 2616.4)
+('Lost Among the Living', 4, 2922.35)
+('The Marriage of Opposites', 4, 2962.44)
+('World Without End (The Pillars of the Earth #2)', 4, 3478.34)
+('A Paris Apartment', 4, 4115.55)
+('The Murder of Roger Ackroyd (Hercule Poirot #4)', 4, 4652.55)
+('Sharp Objects', 4, 5045.01)
+('Full Moon over Noahâ\x80\x99s Ark: An Odyssey to Mount Ararat and Beyond', 4, 5214.86)
+('Murder at the 42nd Street Library (Raymond Ambler #1)', 4, 5734.98)
+('The Past Never Ends', 4, 5960.75)
+('A Year in Provence (Provence #1)', 4, 6000.84)
+("The No. 1 Ladies' Detective Agency (No. 1 Ladies' Detective Agency #1)", 4, 6087.35)
+
+--- top_rated_per_category_join ---
+['category_name', 'title', 'rating', 'price_gbp']
+('Historical Fiction', "A Spy's Devotion (The Regency Spies of London #1)", 5, 16.97)
+('Historical Fiction', 'Between Shades of Gray', 5, 20.79)
+('Historical Fiction', 'Voyager (Outlander #3)', 5, 21.07)
+('Historical Fiction', 'The Passion of Dolssa', 5, 28.32)
+('Historical Fiction', 'Mrs. Houdini', 5, 30.25)
+('Historical Fiction', 'The Red Tent', 5, 35.66)
+('Historical Fiction', 'While You Were Mine', 5, 41.32)
+('Historical Fiction', 'A Flight of Arrows (The Pathfinders #2)', 5, 55.53)
+('Historical Fiction', 'Lost Among the Living', 4, 27.7)
+('Historical Fiction', 'The Marriage of Opposites', 4, 28.08)
+
+Step 5: pandas read_sql / merge verification ...
+
+--- pd.read_sql: in_stock_under_20_gbp ---
+                                               title  price_gbp  rating
+0               Tastes Like Fear (DI Marnie Rome #3)      10.69       1
+1                         Hide Away (Eve Duncan #20)      11.84       1
+2                                  The Girl You Lost      12.29       5
+3                                  Playing with Fire      13.71       3
+4             That Darkness (Gardiner and Renner #1)      13.92       1
+5          The Girl In The Ice (DCI Erika Foster #1)      15.85       3
+6         The Constant Princess (The Tudor Court #1)      16.62       3
+7                                   A Murder in Time      16.64       1
+8            A Study in Scarlet (Sherlock Holmes #1)      16.73       2
+9  A Spy's Devotion (The Regency Spies of London #1)      16.97       5
+
+--- pd.read_sql: top_rated_per_category_join ---
+        category_name  ... price_gbp
+0  Historical Fiction  ...     16.97
+1  Historical Fiction  ...     20.79
+2  Historical Fiction  ...     21.07
+3  Historical Fiction  ...     28.32
+4  Historical Fiction  ...     30.25
+5  Historical Fiction  ...     35.66
+6  Historical Fiction  ...     41.32
+7  Historical Fiction  ...     55.53
+8  Historical Fiction  ...     27.70
+9  Historical Fiction  ...     28.08
+
+[10 rows x 4 columns]
+
+--- pd.merge equivalent of JOIN query ---
+        category_name  ... price_gbp
+0  Historical Fiction  ...     16.97
+1  Historical Fiction  ...     20.79
+2  Historical Fiction  ...     21.07
+3  Historical Fiction  ...     28.32
+4  Historical Fiction  ...     30.25
+5  Historical Fiction  ...     35.66
+6  Historical Fiction  ...     41.32
+7  Historical Fiction  ...     55.53
+8  Historical Fiction  ...     27.70
+9  Historical Fiction  ...     28.08
+
+[10 rows x 4 columns]
+
+read_sql vs merge outputs equivalent: True

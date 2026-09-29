@@ -1,0 +1,142 @@
+Step 1: Loading data from committed titanic.csv (no re-fetch from network) ...
+
+Step 2: Cleaning data (same strategy as EDA stage) ...
+
+Step 3: Stratified train/test split ...
+Train class balance:
+survived
+0    0.61744
+1    0.38256
+Name: proportion, dtype: float64
+Justification: survived has a ~62/38 class split (not evenly balanced). A stratified split preserves this ratio in both train and test sets, preventing the test set from randomly ending up with a skewed survivor ratio that would make evaluation metrics unreliable.
+
+Step 4: Training and evaluating three classifiers ...
+
+=== Logistic Regression ===
+Confusion matrix:
+[[97 13]
+ [21 47]]
+Accuracy: 0.809
+Precision: 0.783
+Recall: 0.691
+F1: 0.734
+AUC: 0.861
+
+=== Decision Tree ===
+Confusion matrix:
+[[88 22]
+ [19 49]]
+Accuracy: 0.770
+Precision: 0.690
+Recall: 0.721
+F1: 0.705
+AUC: 0.754
+
+=== Random Forest ===
+Confusion matrix:
+[[96 14]
+ [18 50]]
+Accuracy: 0.820
+Precision: 0.781
+Recall: 0.735
+F1: 0.758
+AUC: 0.821
+
+=== Classifier Comparison Table ===
+              Model  Accuracy  Precision  Recall    F1   AUC
+Logistic Regression     0.809      0.783   0.691 0.734 0.861
+      Decision Tree     0.770      0.690   0.721 0.705 0.754
+      Random Forest     0.820      0.781   0.735 0.758 0.821
+
+Step 5: Imbalance handling comparison ...
+
+=== Class Balance (training set) ===
+survived
+0    0.61744
+1    0.38256
+Name: proportion, dtype: float64
+
+=== Baseline (no handling) ===
+Confusion matrix:
+[[96 14]
+ [18 50]]
+Accuracy: 0.820
+Precision: 0.781
+Recall: 0.735
+F1: 0.758
+AUC: 0.821
+
+=== class_weight='balanced' ===
+Confusion matrix:
+[[94 16]
+ [17 51]]
+Accuracy: 0.815
+Precision: 0.761
+Recall: 0.750
+F1: 0.756
+AUC: 0.816
+
+=== SMOTE (train fold only) ===
+Precision: 0.791
+Recall: 0.779
+F1: 0.785
+AUC: 0.832
+
+=== Imbalance Strategy Comparison ===
+             Strategy  Precision  Recall    F1
+             Baseline      0.781   0.735 0.758
+class_weight=balanced      0.761   0.750 0.756
+                SMOTE      0.791   0.779 0.785
+
+Conclusion: 'SMOTE' produced the best F1 balance between precision and recall on this split, suggesting it handles the moderate class imbalance most effectively here without overcorrecting recall at the expense of precision.
+
+Step 6: Hyperparameter tuning (Random Forest, GridSearchCV) ...
+
+=== GridSearchCV — Random Forest Tuning ===
+Best params: {'classifier__max_depth': None, 'classifier__max_features': 'sqrt', 'classifier__n_estimators': 100}
+OOB score: 0.795
+
+=== Tuned Random Forest (GridSearchCV) ===
+Confusion matrix:
+[[96 14]
+ [18 50]]
+Accuracy: 0.820
+Precision: 0.781
+Recall: 0.735
+F1: 0.758
+AUC: 0.821
+
+Step 7: Regression side-task (predicting fare) ...
+
+=== Regression Side-Task: Predicting fare ===
+MAE: 21.139
+RMSE: 41.747
+R2: 0.347
+Adjusted R2: 0.324
+The residual spread grows noticeably as predicted fare increases (std=13.25 for low predictions vs std=57.25 for high predictions), indicating heteroscedasticity: the model's errors are not uniformly distributed across the prediction range.
+
+Step 8: Final comparison table and recommendation ...
+
+=== Final Model Comparison ===
+
+Classifiers:
+              Model  Accuracy  Precision  Recall    F1   AUC
+Logistic Regression     0.809      0.783   0.691 0.734 0.861
+      Decision Tree     0.770      0.690   0.721 0.705 0.754
+      Random Forest     0.820      0.781   0.735 0.758 0.821
+
+Regression:
+                   Model    MAE   RMSE    R2  Adjusted_R2
+Linear Regression (fare) 21.139 41.747 0.347        0.324
+
+Final recommendation:
+Based on the comparison table, Random Forest is the recommended classifier for deployment, with the strongest balance of F1 (0.758) and AUC (0.821) among the three models tested. It achieved 0.82 accuracy, 0.781 precision, and 0.735 recall, indicating it identifies survivors reliably without excessive false positives. Random Forest-style ensembling also tends to generalize better than a single decision tree, reducing overfitting risk on unseen passenger data. For a production system prioritizing balanced performance over pure interpretability, this model is the safer choice.
+
+Step 9: Saving best full pipeline (preprocessing + estimator) ...
+Saved 'Random Forest' pipeline to best_pipeline.joblib
+
+Step 10: Reloading and verifying pipeline on raw input ...
+Sample predictions on raw test rows: [0 0 0 0 0]
+Actual values: [0 0 0 0 0]
+
+Modeling pipeline complete.
